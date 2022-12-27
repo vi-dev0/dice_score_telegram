@@ -30,28 +30,28 @@ def test(message):
     else:
         pdscore = 0
 
-    if (message.text == '/stb' or message.text == '/stb@b4dcat_test_bot'):
+    if (message.text == '/stb' or message.text == '/stb@basket404_bot'):
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' + ' твой личный счет:\n\n' +
                          '*БАСКТЕБОЛ*🏀\n' +
                          'Броски: ' + str(pscore.get('b_shots')) + '\nПопадания: '
                          + str(pscore.get('b_sshots')) + '\nПроцент попадания: ' + str(pscorepersent) +
                          '%\n\n*[@B4DCAT404](https://t.me/b4dcat404)*',
                          parse_mode="MarkdownV2", disable_web_page_preview=True)
-    elif 'stf' in message.text:
+    elif (message.text == '/stf' or message.text == '/stf@basket404_bot'):
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' + ' твой личный счет:\n\n' +
                                       '*ФУТБОЛ*⚽\n' +
                                       'Удары: ' + str(pscore.get('f_shots')) + '\nГолы: '
                                       + str(pscore.get('f_sshots')) + '\nПроцент голов: ' + str(pfscore) +
                                      '%\n\n*[@B4DCAT404](https://t.me/b4dcat404)*',
                                      parse_mode="MarkdownV2", disable_web_page_preview=True)
-    elif 'stbou' in message.text:
+    elif (message.text == '/stbou' or message.text == '/stbou@basket404_bot'):
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' + ' твой личный счет:\n\n' +
                                     '*БОУЛИНГ*🎳\n' +
                                      'Броски: ' + str(pscore.get('bou_shots')) + '\nСтрайки: '
                                      + str(pscore.get('bou_sshots')) + '\nПроцент страйков: ' + str(pbouscore) +
                                      '%\n\n*[@B4DCAT404](https://t.me/b4dcat404)*',
                                      parse_mode="MarkdownV2", disable_web_page_preview=True)
-    elif 'std' in message.text:
+    elif (message.text == '/std' or message.text == '/std@basket404_bot'):
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' + ' твой личный счет:\n\n' +
                          '\n\n*ДАРТС*🎯\n' +
                                      'Броски: ' + str(pscore.get('d_shots')) + '\nВ яблочко: '
@@ -126,22 +126,22 @@ def handle_sticker(msg):
 @bot.message_handler(commands=['rsb', 'rsf', 'rsd', 'rsbou'])
 def reset(message):
     tscore = score[message.from_user.id]
-    if message.text == '/rsb':
+    if (message.text == '/rsb' or message.text == '/rsb@basket404_bot'):
         tscore['b_shots'] = 0
         tscore['b_sshots'] = 0
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
                      ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
-    elif 'rsf' in message.text:
+    elif (message.text == '/rsf' or message.text == '/rsf@basket404_bot'):
         tscore['f_shots'] = 0
         tscore['f_sshots'] = 0
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
                          ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
-    elif 'rsd' in message.text:
+    elif (message.text == '/rsd' or message.text == '/rsd@basket404_bot'):
         tscore['d_shots'] = 0
         tscore['d_sshots'] = 0
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
                          ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
-    elif 'rsbou' in message.text:
+    elif (message.text == '/rsbou' or message.text == '/rsbou@basket404_bot'):
         tscore['bou_shots'] = 0
         tscore['bou_sshots'] = 0
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
