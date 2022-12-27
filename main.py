@@ -1,6 +1,6 @@
 import telebot, time, json
 
-token = 'TOKENT_HERE'
+token = 'TOKEN_HERE'
 
 bot = telebot.TeleBot(token)
 score = {}
@@ -123,15 +123,29 @@ def handle_sticker(msg):
 
 
 
-@bot.message_handler(commands=['reset'])
+@bot.message_handler(commands=['rsb', 'rsf', 'rsd', 'rsbou'])
 def reset(message):
-    if '🏀' in message.text:
-        bot.send_message(message.chat.id, 'true')
-        score[message.from_user.id] = {"shots": 0, "sshots": 0}
-
-    bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
+    tscore = score[message.from_user.id]
+    if message.text == '/rsb':
+        tscore['b_shots'] = 0
+        tscore['b_sshots'] = 0
+        bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
                      ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
-
+    elif 'rsf' in message.text:
+        tscore['f_shots'] = 0
+        tscore['f_sshots'] = 0
+        bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
+                         ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
+    elif 'rsd' in message.text:
+        tscore['d_shots'] = 0
+        tscore['d_sshots'] = 0
+        bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
+                         ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
+    elif 'rsbou' in message.text:
+        tscore['bou_shots'] = 0
+        tscore['bou_sshots'] = 0
+        bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
+                         ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
 
 @bot.message_handler(func=lambda message: True)
 def text(message):
