@@ -1,8 +1,8 @@
-import telebot, time, json
+import telebot, time, json, config
 
-token = 'TOKEN_HERE'
 
-bot = telebot.TeleBot(token)
+
+bot = telebot.TeleBot(config.token)
 score = {}
 
 @bot.message_handler(commands=['start'])
