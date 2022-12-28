@@ -12,6 +12,12 @@ def start(message):
                                       'Добавь меня в свою группу и назначь админом\n'
                                       'Для просмотра команд напиши /help')
     print(message)
+@bot.message_handler(commands=['info'])
+def info(message):
+    bot.send_message(message.chat.id, "*Powered by\:*\n\n"
+                                          "@B4DCAT404 \- 🇷🇺 telegram chanel for developers, students and freelancers\n\n"
+                                          "View source code on [GitHub](https://github.com/vi-dev0/dice_score_telegram), "
+                                          "feel free to contribute\n", parse_mode="MarkdownV2")
 @bot.message_handler(commands=['stb','stf', 'std', 'stbou'])
 def test(message):
     pscore = score[message.from_user.id]
@@ -166,6 +172,7 @@ def imganswer(message):
                         'Если это не фото [Стефа Карри](https://www.basketball-reference.com/players/c/curryst01.html)'
                         ' то пректите это отрпавлять, если это Стеф, то *продолжайте*',
                  parse_mode="MarkdownV2", disable_web_page_preview=True)
+
 if __name__ == '__main__':
     while True:
         try:
