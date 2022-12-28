@@ -124,22 +124,22 @@ def handle_sticker(msg):
 @bot.message_handler(commands=['rsb', 'rsf', 'rsd', 'rsbou'])
 def reset(message):
     tscore = score[message.from_user.id]
-    if (message.text == '/rsb' or message.text == '/rsb@b4dcat_test_bot'):
+    if (message.text == '/rsb' or message.text == '/rsb@basket404_bot'):
         tscore['b_shots'] = 0
         tscore['b_sshots'] = 0
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
                      ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
-    elif (message.text == '/rsf' or message.text == '/rsf@b4dcat_test_bot'):
+    elif (message.text == '/rsf' or message.text == '/rsf@basket404_bot'):
         tscore['f_shots'] = 0
         tscore['f_sshots'] = 0
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
                          ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
-    elif (message.text == '/rsd' or message.text == '/rsd@b4dcat_test_bot'):
+    elif (message.text == '/rsd' or message.text == '/rsd@basket404_bot'):
         tscore['d_shots'] = 0
         tscore['d_sshots'] = 0
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
                          ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
-    elif (message.text == '/rsbou' or message.text == '/rsbou@b4dcat_test_bot'):
+    elif (message.text == '/rsbou' or message.text == '/rsbou@basket404_bot'):
         tscore['bou_shots'] = 0
         tscore['bou_sshots'] = 0
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
