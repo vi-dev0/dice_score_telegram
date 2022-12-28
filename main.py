@@ -154,24 +154,24 @@ def reset(message):
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
                          ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
 
-@bot.message_handler(func=lambda message: True)
-def text(message):
-    if ('бот' in message.text or 'Бот' in message.text) :
-        if 'пошел нахуй' in message.text:
-            bot.reply_to(message, 'сам пошел нахуй, черт')
-        elif 'хуйня' in message.text:
-            bot.reply_to(message, 'слышь, сам ты хуйня\nзаберешься в матрицу, я тебе ебало разобью')
-        elif ('бросай' in message.text or 'кидай' in message.text or '🏀' in message.text):
-            bot.reply_to(message, 'Ля как я могу')
-            bot.send_message(message.chat.id, '🏀')
-    else:
-        pass
-@bot.message_handler(func=lambda message: True, content_types=['photo'])
-def imganswer(message):
-    bot.reply_to(message, 'Что это? Я ничего не вижу\n'
-                        'Если это не фото [Стефа Карри](https://www.basketball-reference.com/players/c/curryst01.html)'
-                        ' то пректите это отрпавлять, если это Стеф, то *продолжайте*',
-                 parse_mode="MarkdownV2", disable_web_page_preview=True)
+# @bot.message_handler(func=lambda message: True)
+# def text(message):
+#     if ('бот' in message.text or 'Бот' in message.text) :
+#         if 'пошел нахуй' in message.text:
+#             bot.reply_to(message, 'сам пошел нахуй, черт')
+#         elif 'хуйня' in message.text:
+#             bot.reply_to(message, 'слышь, сам ты хуйня\nзаберешься в матрицу, я тебе ебало разобью')
+#         elif ('бросай' in message.text or 'кидай' in message.text or '🏀' in message.text):
+#             bot.reply_to(message, 'Ля как я могу')
+#             bot.send_message(message.chat.id, '🏀')
+#     else:
+#         pass
+# @bot.message_handler(func=lambda message: True, content_types=['photo'])
+# def imganswer(message):
+#     bot.reply_to(message, 'Что это? Я ничего не вижу\n'
+#                         'Если это не фото [Стефа Карри](https://www.basketball-reference.com/players/c/curryst01.html)'
+#                         ' то пректите это отрпавлять, если это Стеф, то *продолжайте*',
+#                  parse_mode="MarkdownV2", disable_web_page_preview=True)
 
 if __name__ == '__main__':
     while True:
