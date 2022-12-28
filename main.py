@@ -7,7 +7,10 @@ score = {}
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, 'Задрова, заебал')
+    bot.send_message(message.chat.id, 'Привет, я бот сделанный командой @b4dcat404\n'
+                                      'Я умею считать очки в баскетболе, футболе, боулинге и дартсе\n'
+                                      'Добавь меня в свою группу и назначь админом\n'
+                                      'Для просмотра команд напиши /help')
     print(message)
 @bot.message_handler(commands=['stb','stf', 'std', 'stbou'])
 def test(message):
