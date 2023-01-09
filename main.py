@@ -11,13 +11,12 @@ def start(message):
                                       'Я умею считать очки в баскетболе, футболе, боулинге и дартсе\n'
                                       'Добавь меня в свою группу и назначь админом\n'
                                       'Для просмотра команд напиши /help')
-    print(message)
 @bot.message_handler(commands=['info'])
 def info(message):
     bot.send_message(message.chat.id, "*Powered by\:*\n\n"
-                                          "@B4DCAT404 \- 🇷🇺 telegram chanel for developers, students and freelancers\n\n"
-                                          "View source code on [GitHub](https://github.com/vi-dev0/dice_score_telegram), "
-                                          "feel free to contribute\n", parse_mode="MarkdownV2")
+                                      "@B4DCAT404 \- 🇷🇺 telegram chanel for developers, students and freelancers\n\n"
+                                      "View source code on [GitHub](https://github.com/vi-dev0/dice_score_telegram), "
+                                      "feel free to contribute\n", parse_mode="MarkdownV2")
 @bot.message_handler(commands=['stb','stf', 'std', 'stbou'])
 def test(message):
     pscore = score[message.from_user.id]
@@ -77,7 +76,7 @@ def help(message):
                                       '🎳 \- посмотреть счет `/stbou` \| сбросить счет `/rsbou`\n\n'
                                       '*[@B4DCAT404](https://t.me/b4dcat404)*',
                      parse_mode="MarkdownV2", disable_web_page_preview=True)
-
+# In progress
 @bot.message_handler(commands=['score'])
 def scores(message):
     usrid = message.from_user.id
@@ -97,8 +96,6 @@ def scores(message):
 @bot.message_handler(func=lambda message: True, content_types=['dice'])
 def handle_sticker(msg):
     dice = msg.dice.value
-    usrid = msg.from_user.id
-    usrname = msg.chat.first_name
     if msg.dice.emoji == '🏀':
         if msg.from_user.id not in score:
             score[msg.from_user.id] = {"b_shots": 0, "b_sshots": 0, "f_shots": 0, "f_sshots": 0, "bou_shots": 0, "bou_sshots": 0, "d_shots": 0, "d_sshots": 0}
@@ -154,24 +151,6 @@ def reset(message):
         bot.send_message(message.chat.id, '*' + message.from_user.first_name + '*' +
                          ' твой счет обнулен\.\n', parse_mode="MarkdownV2")
 
-# @bot.message_handler(func=lambda message: True)
-# def text(message):
-#     if ('бот' in message.text or 'Бот' in message.text) :
-#         if 'пошел нахуй' in message.text:
-#             bot.reply_to(message, 'сам пошел нахуй, черт')
-#         elif 'хуйня' in message.text:
-#             bot.reply_to(message, 'слышь, сам ты хуйня\nзаберешься в матрицу, я тебе ебало разобью')
-#         elif ('бросай' in message.text or 'кидай' in message.text or '🏀' in message.text):
-#             bot.reply_to(message, 'Ля как я могу')
-#             bot.send_message(message.chat.id, '🏀')
-#     else:
-#         pass
-# @bot.message_handler(func=lambda message: True, content_types=['photo'])
-# def imganswer(message):
-#     bot.reply_to(message, 'Что это? Я ничего не вижу\n'
-#                         'Если это не фото [Стефа Карри](https://www.basketball-reference.com/players/c/curryst01.html)'
-#                         ' то пректите это отрпавлять, если это Стеф, то *продолжайте*',
-#                  parse_mode="MarkdownV2", disable_web_page_preview=True)
 
 if __name__ == '__main__':
     while True:
