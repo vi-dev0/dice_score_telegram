@@ -17,6 +17,7 @@ def info(message):
                                       "@B4DCAT404 \- 🇷🇺 telegram chanel for developers, students and freelancers\n\n"
                                       "View source code on [GitHub](https://github.com/vi-dev0/dice_score_telegram), "
                                       "feel free to contribute\n", parse_mode="MarkdownV2")
+
 @bot.message_handler(commands=['stb','stf', 'std', 'stbou'])
 def test(message):
     pscore = score[message.from_user.id]
@@ -125,6 +126,15 @@ def handle_sticker(msg):
             if dice == 6:
                 score[msg.from_user.id]["d_sshots"] += 1
 
+# cheatcode | Can set score via /set "shots" "successful shots"
+@bot.message_handler(commands=['set'])
+def setscore(msg):
+    tscore = score[msg.from_user.id]
+    set = int(msg.text.split()[1])
+    sett = int(msg.text.split()[2])
+    tscore['b_shots'] = set
+    tscore['b_sshots'] = sett
+
 
 
 @bot.message_handler(commands=['rsb', 'rsf', 'rsd', 'rsbou'])
@@ -159,5 +169,5 @@ if __name__ == '__main__':
         except Exception as e:
             print('Ошибка:')
             print(e)
-            time.sleep(5)
+            time.sleep(2)
             continue
